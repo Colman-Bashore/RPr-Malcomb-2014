@@ -2,7 +2,7 @@
 title: "Reproduction Analysis of Malcomb et al 2014"
 author: "Joseph Holler, Kufre Udoh, Drew An-Pham, Middlebury Open GIScience Classes"
 date: "`r Sys.Date()`"
-output: pdf_document
+output: html_document
 editor_options:
   markdown:
     wrap: sentence
@@ -1295,7 +1295,7 @@ vuln_map = ggplot() +
 
 vuln_map
 ```
-
+## Modification
 ```{r mean-vulnerability}
 #Calculate the mean vulnerability for each TA using a zonal statistic.
 mean_TA_vuln <- aggregate(vulnerability_r, ta_v, FUN = mean) %>% st_as_sf()
@@ -1443,6 +1443,13 @@ write_stars(vulnerability_r, here(public_d, "fig5rp.tif"), layer = "rpv")
 ```
 
 # Discussion
+
+# Impact of calculating a zonal statistic of vulnerability for each traditional authority
+
+While figure 5 represents the results of the vulnerability model across Malawi using a raster grid, a modification provides a simplification of this visualization. The most recent modification is a calculation of mean vulnerability for each of the traditional authorities. This is done through a zonal statistic using the "aggregate" function. This statistic creates a new polygon layer with traditional authority geometries and a new field called vulnerability than represents the mean vulnerability score for that traditional authority. The new layer "mean_TA_vuln" is visualized using tmap in a new map that provides another way of conceptualizing vulnerability across the nation of Malawi. While viewing vulnerability as a raster provides a higher level of detail and follows some of the physical risk dataset types. However, the modified visualization allows the user to see the vulnerability scores in a more meaningful unit. Most of the discussion and calculations earlier in the study focused on the traditional authority, so thus it is logical that the final results of the model be shown in the context of traditional authorities. 
+
+
+
 
 # Conclusions
 
