@@ -1296,6 +1296,24 @@ vuln_map = ggplot() +
 vuln_map
 ```
 
+```{r mean-vulnerability}
+#Calculate the mean vulnerability for each TA using a zonal statistic.
+mean_TA_vuln <- aggregate(vulnerability_r, ta_v, FUN = mean) %>% st_as_sf()
+
+```
+
+```{r mean-vulnerability-ta-map, message=F}
+ta_vuln_brks <- classIntervals(mean_TA_vuln$vulnerability, 4, style = "jenks")$brks
+
+
+tmap_mode("plot")
+tm_shape(mean_TA_vuln) + 
+  tm_polygons(col="vulnerability", breaks=ta_vuln_brks, title="Mean Vulnerability by TA", palette="YlOrRd", lwd=0.1, border.col="lightgrey") +
+tm_layout(main.title = "Malawi Climate Change Vulnerability",main.title.size = 1.2, main.title.position = "center", frame = FALSE, legend.width=3, legend.text.size = .7, legend.title.size = 1, asp=0.9, )
+
+```
+
+
 ```{r saving spatial data outputs}
 write_stars(capacity_r, here("data","derived","public","ta_capacity.tif"))
 
