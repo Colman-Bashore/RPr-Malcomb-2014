@@ -1,4 +1,4 @@
-# Planned revisions to reproduction of Malcomb et al (2014)
+# Revisions to reproduction of Malcomb et al (2014)
 
 ## Author: Colman Bashore
 

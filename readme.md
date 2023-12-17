@@ -14,6 +14,7 @@ This study is a reproduction of:
 - [Drew An-Pham](https://daptx.github.io/)
 - [Peter Kedron](https://sgsup.asu.edu/peter-kedron)
 - [Derrick Burt](https://derrickburt.github.io)
+- [Colman Bashore](https://colman-bashore.github.io)
 - Middlebury [GEOG0323](https://gis4dev.github.io) Class of Fall 2019.
 
 ## Repository Documents
